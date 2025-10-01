@@ -174,10 +174,7 @@ class Snake implements ICollidable {
       return;
     }
 
-    const head = snakeParts[0];
-
-    snakeParts.slice(1).forEach((part, index) => {
-    });
+    snakeParts.slice(1).forEach((part, index) => {});
   }
 
   /**

@@ -75,9 +75,8 @@ describe("WorldModel Tests", function () {
   const testDescriptions = ["correctly updates the snake's position"];
 
   testDescriptions.forEach((description, index) => {
-    it(description, () =>
-      expect(tests[index].actual).toBe(tests[index].expected),
-    );
+    it("is a description", () =>
+      expect(tests[index].actual).toBe(tests[index].expected));
   });
 
   it("should correctly add actors to the world model", () => {

@@ -23,15 +23,21 @@ class MainMenuController {
   }
 
   init(data: any): void {
-    document.body.appendChild(this.humanPlayersInput);
-    document.body.appendChild(this.aiPlayersInput);
-    document.body.appendChild(this.playGameButton);
+    const menuContainer = document.getElementById("menu-container");
+    if (!menuContainer) return;
+
+    menuContainer.appendChild(this.humanPlayersInput);
+    menuContainer.appendChild(this.aiPlayersInput);
+    menuContainer.appendChild(this.playGameButton);
   }
 
   private switchContext(): void {
-    document.body.removeChild(this.humanPlayersInput);
-    document.body.removeChild(this.aiPlayersInput);
-    document.body.removeChild(this.playGameButton);
+    const menuContainer = document.getElementById("menu-container");
+    if (!menuContainer) return;
+
+    menuContainer.removeChild(this.humanPlayersInput);
+    menuContainer.removeChild(this.aiPlayersInput);
+    menuContainer.removeChild(this.playGameButton);
 
     const gameConfig = {
       numOfHumanPlayers: parseInt(this.humanPlayersInput.value),
