@@ -1,7 +1,6 @@
 import IWorldView from "./IWorldView";
 import WorldModel from "./WorldModel";
 import Snake from "./Snake";
-import IActor from "./IActor";
 import Food from "./Food";
 
 /** Class implementing the IWorldView interface to display the world model on a canvas. */

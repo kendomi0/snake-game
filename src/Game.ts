@@ -5,6 +5,7 @@ class Game {
   private contextSwitches: Map<string, string>;
   private controllers: Map<string, MainMenuController | GameController>;
   private currentContext: string;
+  public onGameOver?: () => void;
 
   constructor() {
     this.contextSwitches = new Map();

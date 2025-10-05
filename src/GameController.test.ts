@@ -6,7 +6,6 @@ import HumanPlayer from "../src/HumanPlayer";
 import AvoidWallsPlayer from "../src/AvoidWallsPlayer";
 import CanvasWorldView from "../src/CanvasWorldView";
 import Player from "../src/Player";
-import LRKeyInputHandler from "./LRKeyInputHandler";
 
 jest.useFakeTimers();
 

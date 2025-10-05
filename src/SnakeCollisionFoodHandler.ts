@@ -1,4 +1,3 @@
-import IActor from "./IActor";
 import ICollisionHandler from "./ICollisionHandler";
 import Snake from "./Snake";
 import Food from "./Food";

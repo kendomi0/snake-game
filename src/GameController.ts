@@ -77,34 +77,34 @@ class GameController {
   }
 
   private wrapAroundHumanPlayer() {
-  this.players.forEach((player) => {
-    if (player instanceof HumanPlayer) {
-      const snakePos = player.sc.snakePosition;
-      const worldWidth = player.sc.worldWidth;
-      const worldHeight = player.sc.worldHeight;
+    this.players.forEach((player) => {
+      if (player instanceof HumanPlayer) {
+        const snakePos = player.sc.snakePosition;
+        const worldWidth = player.sc.worldWidth;
+        const worldHeight = player.sc.worldHeight;
 
-      let newX = snakePos.x;
-      let newY = snakePos.y;
+        let newX = snakePos.x;
+        let newY = snakePos.y;
 
-      if (snakePos.x < 0) {
-        newX = worldWidth - 1;
-      } else if (snakePos.x >= worldWidth) {
-        newX = 0;
+        if (snakePos.x < 0) {
+          newX = worldWidth - 1;
+        } else if (snakePos.x >= worldWidth) {
+          newX = 0;
+        }
+
+        if (snakePos.y < 0) {
+          newY = worldHeight - 1;
+        } else if (snakePos.y >= worldHeight) {
+          newY = 0;
+        }
+
+        if (newX !== snakePos.x || newY !== snakePos.y) {
+          const snake = (player.sc as any).slitherer as Snake;
+          snake.position = new Point(newX, newY);
+        }
       }
-
-      if (snakePos.y < 0) {
-        newY = worldHeight - 1;
-      } else if (snakePos.y >= worldHeight) {
-        newY = 0;
-      }
-
-      if (newX !== snakePos.x || newY !== snakePos.y) {
-        const snake = (player.sc as any).slitherer as Snake;
-        snake.position = new Point(newX, newY);
-      }
-    }
-  });
-}
+    });
+  }
 
   run() {
     let lastTime = performance.now();
@@ -122,16 +122,15 @@ class GameController {
       }
 
       const humanAlive = this.players.some(
-      (player) => player instanceof HumanPlayer && player.isActive()
-    );
+        (player) => player instanceof HumanPlayer && player.isActive(),
+      );
 
-    if (humanAlive) {
-      requestAnimationFrame(drawFrame);
-    } else {
-      this.endGame();
-    }
-  };
-    
+      if (humanAlive) {
+        requestAnimationFrame(drawFrame);
+      } else {
+        this.endGame();
+      }
+    };
 
     requestAnimationFrame(drawFrame);
   }
@@ -139,7 +138,11 @@ class GameController {
   private endGame() {
     this.players = [];
     this.worldView.dispose();
-    this.game.switchContext({});
+    if (this.game.onGameOver) {
+      this.game.onGameOver();
+    } else {
+      this.game.switchContext({});
+    }
   }
 }
 

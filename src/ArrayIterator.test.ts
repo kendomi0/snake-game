@@ -15,8 +15,8 @@ describe("ArrayIterator", () => {
     const arr = [1, 2];
     const iterator = new ArrayIterator(arr);
 
-    iterator.next(); 
-    iterator.next(); 
+    iterator.next();
+    iterator.next();
 
     expect(iterator.next()).toEqual({ value: undefined, done: true });
     expect(iterator.next()).toEqual({ value: undefined, done: true });
