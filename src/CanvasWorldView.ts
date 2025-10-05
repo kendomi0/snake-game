@@ -54,7 +54,7 @@ class CanvasWorldView implements IWorldView {
     const actorsArray = Array.from(worldModel.actors);
     for (const actor of actorsArray) {
       if (actor instanceof Snake) {
-        this.context.fillStyle = "green";
+        this.context.fillStyle = (actor as any).color || "green";
         actor.getCurrentParts.forEach((part) => {
           this.context.fillRect(
             part.x * this.scalingFactor,

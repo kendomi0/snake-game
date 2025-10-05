@@ -45,6 +45,8 @@ class GameController {
 
     for (let i = 0; i < totalPlayers; i++) {
       const snake = new Snake(new Point(0, 0), 3);
+      (snake as any).color =
+        i === 0 && i < data.numOfHumanPlayers ? "blue" : "green";
       const snakeController = new SnakeController(this.world, snake);
 
       if (i < data.numOfHumanPlayers) {
