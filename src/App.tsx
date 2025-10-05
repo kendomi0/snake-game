@@ -127,8 +127,10 @@ export default function App() {
             borderRadius: "4px",
           }}
         >
+          You are the{" "}
+          <span style={{ color: "blue", fontWeight: "bold" }}>BLUE</span> snake.
           Use your left arrow key to turn counterclockwise, right arrow key to
-          turn clockwise
+          turn clockwise.
         </div>
       )}
       {gameOver && (
