@@ -81,7 +81,20 @@ export default function App() {
           >
             Snake Run
           </div>
-
+          <div
+            style={{
+              position: "absolute",
+              top: "160px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "black",
+              fontSize: "16px",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            (Currently single-player)
+          </div>
           <div
             id="menu-container"
             style={{
